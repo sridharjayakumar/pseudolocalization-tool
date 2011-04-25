@@ -1,0 +1,24 @@
+#summary Sample code for using the library
+#labels Phase-Implementation,Featured
+
+= Introduction =
+
+Here is some sample code showing how to use the pseudolocalization library.
+
+
+= Plain Text =
+
+{{{
+String text;
+PseudolocalizationPipeline pipeline = PseudolocalizationPipeline.getVariantPipeline("psaccent");
+String result = pipeline.localize(text);
+}}}
+
+= Structured Messages =
+
+{{{
+Message msg = buildStructuredMessage();
+PseudolocalizationPipeline pipeline = PseudolocalizationPipeline.getVariantPipeline("psbidi");
+pipeline.localize(msg);
+// use the localized msg
+}}}

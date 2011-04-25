@@ -1,0 +1,54 @@
+#summary Structured Message API
+#labels Phase-Design
+
+= Introduction =
+
+This document describes the structured message API, which allows localization of complex messages.  You will need to use this API to integrate an external message system or add new import/export formats.
+
+= Message Representation =
+
+== Interfaces ==
+
+The following interfaces define the basic API.
+
+===Message===
+
+A message is composed of a sequence of one or more fragments, all subclasses of *!MessageFragment*.
+
+===!TextFragment===
+
+A fragment containing normal, localizable text.
+
+===!NonlocalizableTextFragment===
+
+A fragment containing text that should not be localized, such as HTML or format patterns.
+
+===Placeholder===
+
+A fragment representing a value which will be substituted at runtime, such as a total or a value from a database.
+
+===!VariantFragment===
+
+A variant fragment represents multiple options for a portion of the message, one of which will be chosen at runtime.  For example, plural forms or gender selection will use this.
+
+A !VariantFragment is composed of one or more !VariantSelectors, which define a way of choosing one of several !VariantForms.  Each !VariantForm contains zero or more !MessageFragments (which can in turn contain other !VariantFragments, as well as any other fragment type).
+
+== Abstract Implementations ==
+
+If you can alter the inheritance hierarchy of your message classes, you can save some work by using the abstract implementation classes of the above interfaces.  Even if you can't use them directly, you can still look at the source to see what is required of implementations.
+
+= Visitor API =
+
+The visitor API will be used for building and processing your structured messages, as well as writing a new pseudolocalization method.  All methods receive a !VisitorContext object, which can be used to mutate the message as it is being visited.
+
+==!MessageVisitor==
+
+The top level visitor is !MessageVisitor, which is passed to `Message.accept`.
+
+===`MessageFragmentVisitor visitMessage(VisitorContext, Message)`===
+
+Called when beginning a visit on a Message.  Returns a !MessageFragmentVisitor to visit fragments of the message, or null if no further visitation is required.
+
+===`void endMessage(!VisitorContext, Message)`===
+
+Called after visiting all fragments of a Message.
