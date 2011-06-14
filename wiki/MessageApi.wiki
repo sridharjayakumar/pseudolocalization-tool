@@ -78,3 +78,27 @@ Visits a `VariantFragment`.  Returns a `VariantFragmentVisitor`, or null if ther
 ==!VariantFragmentVisitor==
 
 This visitor visits the structure of a variant fragment.
+
+===`VariantFormVisitor visitSelector(VisitorContext, VariantSelector )`===
+
+Visits a `VariantSelector`.  Returns a `VariantSelectorVisitor`, or null if there is no need to visit the forms and message fragments underneath this selector.
+
+===`void endSelector(VisitorContext, VariantSelector)`===
+
+Called after completing the visit of a `VariantSelector`.
+
+===`void endVariantFragment(VisitorContext, VariantFragment)`===
+
+Called after all selectors in a variant fragment have been visited.
+
+==!VariantFormVisitor==
+
+This visitor visits form of a variant fragment.
+
+===`MessageFragmentVisitor visitVariantForm(VisitorContext, VariantForm)`===
+
+Visit a variant form, and returns a visitor to use for visiting the associated message or null if no visit is required.
+
+===`void endVariantForm(VisitorContext, VariantForm)`===
+
+Called after visiting a variant form is complete.
