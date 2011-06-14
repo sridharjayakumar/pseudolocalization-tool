@@ -1,0 +1,13 @@
+#summary Contributing Code
+#labels Featured,Phase-Support
+
+= Contributing Code =
+
+We are happy to accept contributions to this project.
+
+  # First, we must have a Contributor License Agreement (CLA) on file:
+    * [http://code.google.com/legal/individual-cla-v1.0.html individuals]
+    * [http://code.google.com/legal/corporate-cla-v1.0.html companies]
+  # Please comment on an issue (creating one if it doesn't exist) that you are working on, so work isn't duplicated.
+  # Prepare a patch, following the style of existing code (and including tests).
+  # Post the patch to the [http://groups.google.com/group/pseudolocalization-tool pseudolocalization-tool] group.
