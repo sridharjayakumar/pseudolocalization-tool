@@ -1,5 +1,5 @@
 #summary Dependencies for building pseudolocalization-tool
-#labels Phase-Implementation
+#labels Phase-Implementation,Featured
 
 [http://sourceforge.net/projects/htmlparser/ HtmlParser] is required for normal operation, and [http://www.junit.org/ JUnit] is required for the tests.
 
