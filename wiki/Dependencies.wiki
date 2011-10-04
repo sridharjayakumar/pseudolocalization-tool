@@ -1,0 +1,6 @@
+#summary Dependencies for building pseudolocalization-tool
+#labels Phase-Implementation
+
+[http://sourceforge.net/projects/htmlparser/ HtmlParser] is required for normal operation, and [http://www.junit.org/ JUnit] is required for the tests.
+
+Compatible versions of both are provided in svn at [http://pseudolocalization-tool.googlecode.com/svn/trunk/lib/ trunk/lib] or you can supply your own versions.
